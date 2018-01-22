@@ -1,0 +1,18 @@
+idx = sample(1:dim(iris)[1],40)
+irisSample = iris[idx,]
+irisSample$class = NULL
+hc_average = hclust(dist(irisSample),method = "average")
+hc_single = hclust(dist(irisSample),method = "single")
+hc_complete = hclust(dist(irisSample),method = "complete")
+plot(hc_average,hang = -1,labels = iris$class[idx])
+rect.hclust(hc,k=3)
+plot(hc_single,hang = -1,labels = iris$class[idx])
+rect.hclust(hc,k=3)
+plot(hc_complete,hang = -1,labels = iris$class[idx])
+rect.hclust(hc,k=3)
+groups_average = cutree(hc_average,k=3)
+groups_single = cutree(hc_single,k=3)
+groups_complete = cutree(hc_complete,k=3)
+View(groups_average)
+View(groups_single)
+View(groups_complete)
